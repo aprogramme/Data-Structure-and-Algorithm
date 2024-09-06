@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cout<<"No. of row and col is equal: ";
+    cin>>n;
+    int arr[n][n];
+
+    cout<<"Enter element: ";
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            cin>>arr[i][j];
+        }
+    }
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+
+    //transpose
+    for(int i=0; i<n-1; i++){
+        for(int j=i+1; j<n; j++){
+            swap(arr[i][j], arr[j][i]);
+        }
+    }
+
+    // reverse (col reverse)
+    for(int i=0; i<n; i++){
+        int start=0, end=n-1;
+        while(start<end){
+            swap(arr[start][i], arr[end][i]);
+            start++, end--;
+        }
+    }
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
